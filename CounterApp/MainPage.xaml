@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CounterApp.MainPage"
+             BackgroundColor="LavenderBlush">
+
+    <StackLayout Padding="10">
+        <Button Text="Add New Counter"
+                Clicked="OnAddCounterClicked"
+                BackgroundColor="LightSkyBlue"
+                TextColor="White"
+                FontSize="18" />
+        <ScrollView Orientation="Vertical">
+            <CollectionView x:Name="CountersCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}"
+                                   FontSize="20"
+                                   TextColor="DarkSlateGray"
+                                   HorizontalOptions="Center" />
+                            <StackLayout Orientation="Horizontal"
+                                         BackgroundColor="LightGray"
+                                         Padding="5">
+                                <Button Text="-"
+                                        Clicked="OnDecrementClicked"
+                                        BackgroundColor="Crimson"
+                                        TextColor="White"
+                                        FontSize="20" />
+                                <Label Text="{Binding Value}"
+                                       FontSize="24"
+                                       HorizontalOptions="CenterAndExpand"
+                                       TextColor="Black" />
+                                <Button Text="+"
+                                        Clicked="OnIncrementClicked"
+                                        BackgroundColor="ForestGreen"
+                                        TextColor="White"
+                                        FontSize="20" />
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
